@@ -17,7 +17,7 @@ import static com.fasterxml.jackson.databind.cfg.CoercionInputShape.Array;
 
 //@Configuration
 //@EnableWebMvc
-/*public class WebConfigCors {
+public class WebConfigCors {
     @Bean
     public FilterRegistrationBean corsFilter(){
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
@@ -41,4 +41,4 @@ import static com.fasterxml.jackson.databind.cfg.CoercionInputShape.Array;
         bean.setOrder(-102);
         return bean;
     }
-}*/
+}
