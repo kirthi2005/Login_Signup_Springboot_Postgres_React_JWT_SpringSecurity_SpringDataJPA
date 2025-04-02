@@ -21,7 +21,6 @@ from tokens. Use a library like io.jsonwebtoken to handle token creation and par
 configure secret key and expiration time
 */
 @Component
-
 public class JwtUtil {
     // secret key
     private static final SecretKey secretKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);

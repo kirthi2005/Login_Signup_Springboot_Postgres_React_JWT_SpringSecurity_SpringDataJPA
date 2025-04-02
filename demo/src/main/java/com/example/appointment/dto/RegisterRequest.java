@@ -5,16 +5,15 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 
-//@Getter
-//@Setter
-@AllArgsConstructor
-@NoArgsConstructor
 public class RegisterRequest {
     private String username;
     private String password;
-    private Set<String> Roles; // A set of role names to be passed in the request
+    //private Set<String> Roles = new HashSet<>(Arrays.asList("USER", "ADMIN")); // A set of role names to be passed in the request
+    private Set<String> Roles = new HashSet<>();
 
     public String getUsername() {
         return username;
@@ -37,6 +36,9 @@ public class RegisterRequest {
     }
 
     public void setRoles(Set<String> roles) {
-        Roles = roles;
+        this.Roles = roles;
     }
+    /*public void setRoles(String role) {
+        Roles.add(role);
+    }*/
 }

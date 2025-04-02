@@ -15,8 +15,8 @@ import java.util.Arrays;
 
 import static com.fasterxml.jackson.databind.cfg.CoercionInputShape.Array;
 
-//@Configuration
-//@EnableWebMvc
+@Configuration
+@EnableWebMvc
 public class WebConfigCors {
     @Bean
     public FilterRegistrationBean corsFilter(){
@@ -35,10 +35,11 @@ public class WebConfigCors {
                 HttpMethod.PUT.name(),
                 HttpMethod.DELETE.name()
         ));
-        config.setMaxAge(3600L);
+        config.setMaxAge(3600L); // Cache preflight response for 1 hour
         source.registerCorsConfiguration("/**",config);
         FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
         bean.setOrder(-102);
         return bean;
+
     }
 }
