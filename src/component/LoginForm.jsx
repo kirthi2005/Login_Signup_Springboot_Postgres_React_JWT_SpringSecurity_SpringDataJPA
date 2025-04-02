@@ -8,47 +8,24 @@ function LoginForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-    //GET Request
-        /*try {
-            const response = await fetch('http://localhost:8080/login', {
-                method: 'GET',
-                headers: {
-                    'Content-Type': 'application/json'
-                }                
-            });
-           response.text().then(function(text){
-                console.log(text);
-            });           
 
-            if (response.ok) {
-                // Handle successful login
-                console.log('Login successful');
-            } else {
-                // Handle failed login
-                console.error('Login failed');
-            }
-        } catch (error) {
-            console.error('There was an error during login:', error);
-        }       */   
-     
+        const loginData = {username, password};
+        console.log("Requested Data: " + loginData.username);
+        console.log("Requested Data: " + loginData.password);
 
-// For Post request
+// For Login - Post request
     try{
-        
         const responseData =  fetch('http://localhost:8080/auth/login', {
         method: 'POST',
         headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
         },
-        body: `username=${username}&password=${password}`,
+        body: JSON.stringify(loginData),
         })
         .then(response => response.text())
         .then(data => console.log(data))
-        /*if(response.ok){
-            console.log("login successful");}
-        else {
-            console.log("login failed");
-        }*/}
+    }
         catch(error){ console.error('Error:', error)};
 }
 
@@ -64,7 +41,7 @@ function LoginForm() {
                 <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
             <div>
-            <button type="submit" style={{marginRight: "5px"}}>Login </button>            
+            <button type="submit" style={{marginRight: "5px"}}>Login </button>
             <div>
                New User? <button type="button" onClick={() => navigate("/register")}>Register</button>
                </div>
